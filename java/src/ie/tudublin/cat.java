@@ -2,7 +2,7 @@ package ie.tudublin;
 
 public class cat {
     private int numLives;
-    private String name;
+    String name;
 
     public cat(String name) {
         this.name = name;
