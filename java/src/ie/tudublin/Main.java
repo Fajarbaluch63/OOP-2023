@@ -21,7 +21,7 @@ public class Main
         processing.core.PApplet.runSketch( a, new BugZap());
     }
 
-	public static void starMap()
+	public static void StarMap()
 	{
 		String[] a = {"MAIN"};
         processing.core.PApplet.runSketch( a, new StarMap());
@@ -40,7 +40,7 @@ public class Main
 		penny.setName("Penny");
 		penny.speak();
 
-		Audio1();
+		StarMap();
 	}
 	
 }
