@@ -74,13 +74,15 @@ public class StarMap extends PApplet
 	{	
 		strokeWeight(1);
 		drawGrid();
+        displayStars();
 	}
 
-    public void drawStars()
+   
+    public void displayStars()
     {
-        //for(Star s:stars()
-       // {
-          //  s.render(this);
-       // }
+        for(int i =0; i < stars.size(); i++) 
+        {
+            stars.get(i).render(this);
+        }
     }
 }
