@@ -10,6 +10,7 @@ public class StarMap extends PApplet
 {
 
     ArrayList<Star> stars = new ArrayList<Star>();
+    Star firstStar = null;
 
 	public void settings()
 	{
@@ -65,9 +66,36 @@ public class StarMap extends PApplet
             text(i, x, border * 0.5f);
 
         }
-
-        
     }
+
+    public void mousePressed()
+{
+    for (Star s : stars)
+    {
+        float border = width * 0.1f;
+        float x = map(s.getxG(), -5, 5, border, width - border);
+        float y = map(s.getyG(), -5, 5, border, height - border);
+        float d = dist(mouseX, mouseY, x, y);
+
+        if (d < s.getAbsMag())
+        {
+            if (firstStar == null)
+            {
+                firstStar = s;
+            }
+            else
+            {
+                stroke(255, 255, 0);
+                line(x, y, map(firstStar.getxG(), -5, 5, border, width - border), map(firstStar.getyG(), -5, 5, border, height - border));
+                float distance = dist(firstStar.getxG(), firstStar.getyG(), s.getxG(), s.getyG());
+                println("Distance from " + firstStar.getDisplayName() + " to " + s.getDisplayName() + " is " + distance + " parsecs");
+                firstStar = null;
+            }
+            break;
+        }
+    }
+}
+
 
 
 	public void draw()
@@ -75,6 +103,8 @@ public class StarMap extends PApplet
 		strokeWeight(1);
 		drawGrid();
         displayStars();
+        mousePressed();
+
 	}
 
    
