@@ -1,9 +1,15 @@
 package ie.tudublin;
 
+import java.util.ArrayList;
+
 import processing.core.PApplet;
+import processing.data.Table;
+import processing.data.TableRow;
 
 public class StarMap extends PApplet
 {
+
+    ArrayList<Star> stars = new ArrayList<Star>();
 
 	public void settings()
 	{
@@ -16,11 +22,31 @@ public class StarMap extends PApplet
 
         
 
-	
+	   loadStars();
+       printStars();
 
 		smooth();
 		
 	}
+
+    void printStars()
+    {
+        for(int i=0; i < stars.size(); i++)
+        {
+            println(stars.get(i));
+        }
+    }
+    
+
+    public void loadStars()
+    {
+        Table table = loadTable("HabHYG15ly.csv", "header");
+ 		for(TableRow r:table.rows())
+ 		{
+ 			Star s = new Star(r);
+ 			stars.add(s);
+ 		}
+    }
 
     public void drawGrid()
     {
