@@ -20,7 +20,7 @@ public class Audio1 extends PApplet
     float smoothedAmplitude = 0;
 
     public void keyPressed() {
-        if (key >= '0' && key <= '9') {
+        if (key >= '0' && key <= '5') {
             mode = key - '0';
         }
         if (keyCode == ' ') {
@@ -47,8 +47,8 @@ public class Audio1 extends PApplet
         ab = ai.mix; 
 
         // And comment the next two lines out
-        //ap = minim.loadFile("heroplanet.mp3", 1024);
-       // ap.play();
+        ap = minim.loadFile("heroplanet.mp3", 1024);
+       ap.play();
         ab = ap.mix;
         colorMode(HSB);
 
