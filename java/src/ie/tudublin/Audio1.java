@@ -19,6 +19,8 @@ public class Audio1 extends PApplet
     float smoothedY = 0;
     float smoothedAmplitude = 0;
 
+    float[] lerpedBuffer;
+
     public void keyPressed() {
         if (key >= '0' && key <= '5') {
             mode = key - '0';
@@ -48,12 +50,14 @@ public class Audio1 extends PApplet
 
         // And comment the next two lines out
         ap = minim.loadFile("heroplanet.mp3", 1024);
-       ap.play();
+        ap.play();
         ab = ap.mix;
         colorMode(HSB);
 
         y = height / 2;
         smoothedY = y;
+
+        lerpedBuffer = new float[ab.size()];
 
     }
 
@@ -70,12 +74,13 @@ public class Audio1 extends PApplet
         // Also lerp each element of buffer;
         for(int i = 0 ; i < ab.size() ; i ++)
         {
-            sum += abs(ab.get(i));
+            lerpedBuffer[i] = lerp(lerpedBuffer[i], ab.get(i), 0.1f);
+            sum += abs(lerpedBuffer[i]);
         }
-        average= sum / (float) ab.size();
+        average = sum / (float) ab.size();
 
         smoothedAmplitude = lerp(smoothedAmplitude, average, 0.1f);
-        
+
         float cx = width / 2;
         float cy = height / 2;
 
@@ -87,7 +92,7 @@ public class Audio1 extends PApplet
                     //float c = map(ab.get(i), -1, 1, 0, 255);
                     float c = map(i, 0, ab.size(), 0, 255);
                     stroke(c, 255, 255);
-                    float f = ab.get(i) * halfH;
+                    float f = lerpedBuffer[i] * halfH;
                     line(i, halfH + f, i, halfH - f);                    
                 }
                 break;
@@ -96,9 +101,6 @@ public class Audio1 extends PApplet
             break;
 
         }
-        
-
-
         
         // Other examples we made in the class
         /*
