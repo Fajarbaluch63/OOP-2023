@@ -79,8 +79,8 @@ public class Audio2 extends PApplet{
 
 
 
-        //println(map(5, 2, 10, 1000, 2000));
-        //println(map1(5, 2, 10, 1000, 2000));
+        println(map(5, 2, 10, 1000, 2000));
+        println(map1(5, 2, 10, 1000, 2000));
     }
 
     float lerpedY = 0;
@@ -94,3 +94,5 @@ public class Audio2 extends PApplet{
         return d + (howFar / range1) * range2;
     }
 }
+
+
