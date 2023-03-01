@@ -58,7 +58,7 @@ public class Audio2 extends PApplet{
         int highestIndex = 0;
         for(int i = 0 ;i < fft.specSize() / 2 ; i ++)
         {
-            line(i * 3.0f, height, i * 3.0f, height - fft.getBand(i) * 10.0f);
+            line(i * 2.0f, height, i * 2.0f, height - fft.getBand(i) * 5.0f);
 
             if (fft.getBand(i) > fft.getBand(highestIndex))
             {
