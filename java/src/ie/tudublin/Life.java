@@ -1,5 +1,7 @@
 package ie.tudublin;
 
+import processing.core.PApplet;
+
 public class Life {
     
     public void settings() {
@@ -11,11 +13,9 @@ public class Life {
 		colorMode(HSB);
 	}
 
-    package ie.tudublin;
-
-    import processing.core.PApplet;
+   
     
-    public class BugZap extends PApplet {
+    public class Life extends PApplet {
         public void settings() {
             size(1000, 1000);
         }

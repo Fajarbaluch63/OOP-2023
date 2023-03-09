@@ -39,11 +39,7 @@ public class Main
         processing.core.PApplet.runSketch( a, new Audio2());
     }
 
-	public static void lifeBoard()
-	{
-		String[] a = {"MAIN"};
-        processing.core.PApplet.runSketch( a, new LifeBoard());
-    }
+
 	
 	public static void main(String[] args)
 	{
@@ -53,7 +49,7 @@ public class Main
 		penny.setName("Penny");
 		penny.speak();
 
-		lifeBoard();
+	
 	}
 	
 }
