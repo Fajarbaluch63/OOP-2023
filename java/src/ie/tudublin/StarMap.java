@@ -14,7 +14,7 @@ public class StarMap extends PApplet {
     
     public float border;
 
-<<<<<<< HEAD
+
 		
 	public void draw()
 	{	
@@ -25,7 +25,7 @@ public class StarMap extends PApplet {
 }
 
 
-=======
+
     void drawGrid()
     {
         stroke(255, 0, 255);
